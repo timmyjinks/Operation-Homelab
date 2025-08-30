@@ -18,6 +18,7 @@ capabilities of what one server can do.
 - Gitea
 - Synapse
 - Traefik
+- TrueNas
 - Uptimekuma
 
 ## Technologies

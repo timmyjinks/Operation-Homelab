@@ -1,0 +1,31 @@
+---
+services:
+  frontend:
+    container_name: "TYSONCLOUD-frontend"
+    image: "timmijinks/tysoncloud-frontend:latest"
+    networks:
+      - frontend
+      - tysoncloud
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.tysoncloud-http.rule=Host("tysoncloud.prod.tysonjenkins.dev")
+      - traefik.http.routers.tysoncloud-http.entrypoints=web
+      - traefik.http.routers.tysoncloud-https.tls=true
+      - traefik.http.routers.tysoncloud-https.tls.certresolver=cloudflare
+      - traefik.http.routers.tysoncloud-https.entrypoints=websecure
+      - traefik.http.routers.tysoncloud-https.rule=Host("tysoncloud.prod.tysonjenkins.dev") || Host("tysoncloud.tysonjenkins.dev")
+      - traefik.docker.network=frontend
+      - traefik.http.services.tysoncloud-https.loadbalancer.server.port=3000
+
+  backend:
+    container_name: "TYSONCLOUD-backend"
+    image: "timmijinks/tysoncloud-backend:latest"
+    networks:
+      - tysoncloud
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  frontend:
+    external: true
+  tysoncloud:

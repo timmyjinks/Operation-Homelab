@@ -20,6 +20,7 @@ capabilities of what one server can do.
 - Traefik
 - TrueNas
 - Uptimekuma
+- Nginx
 
 ## Technologies
 - Proxmox

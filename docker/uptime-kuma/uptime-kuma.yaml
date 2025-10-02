@@ -1,0 +1,10 @@
+---
+services:
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    ports:
+      - 3001:3001
+    volumes:
+      - /var/lib/docker/volumes:/app/data
+    restart: unless-stopped

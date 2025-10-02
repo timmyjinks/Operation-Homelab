@@ -1,0 +1,20 @@
+---
+services:
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    networks:
+      - frontend
+    volumes:
+      - /containers/uptimekuma:/app/data
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.tysoncloud-https.tls=true
+      - traefik.http.routers.tysoncloud-https.tls.certresolver=cloudflare
+      - traefik.http.routers.tysoncloud-https.entrypoints=websecure
+      - traefik.http.routers.tysoncloud-https.rule=Host("uptime-kuma.home.tysonjenkins.dev") || Host("monitor.tysonjenkins.dev")
+    restart: always
+
+networks:
+  frontend:
+    external: true

@@ -7,6 +7,8 @@
     ./tailscale.nix
     ./traefik.nix
     ./docker.nix
+    # ./laptop.nix
+    # ./k3s.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

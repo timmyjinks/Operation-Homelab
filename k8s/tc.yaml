@@ -15,28 +15,9 @@ spec:
     spec:
       containers:
         - name: payme
-          image: timmijinks/payme:latest
+          image: timmijinks/payme
           ports:
             - containerPort: 3000
----
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: nginx
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: nginx
-  minReplicas: 1
-  maxReplicas: 10
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 50
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -48,11 +29,11 @@ spec:
     kind: Deployment
     name: tysoncloud
   minReplicas: 1
-  maxReplicas: 10
+  maxReplicas: 100
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 50
+          averageUtilization: 70

@@ -6,8 +6,6 @@ spec:
   selector:
     app: tysoncloud
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 3000
-      nodePort: 30035
-      protocol: TCP
-  type: LoadBalancer

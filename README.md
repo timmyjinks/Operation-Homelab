@@ -26,6 +26,8 @@ capabilities of what one server can do.
 - Proxmox
 - Docker
 - Kubernetes
+- K3s
+- Tailscale
 - Cloudflare
 - Ubuntu Server
 - NixOS

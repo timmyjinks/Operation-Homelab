@@ -2,12 +2,11 @@
 
 ## Overiew
 
-My homelab hosts TYSONCLOUD and personal projects. Personal projects
-include Plex, Qbitorrent, Gitea, and many more. I plan to use this to
-learn about different services and experiment for DevOps and to test the 
-capabilities of what one server can do.
+This repo holds configuration files and documentation on the services that run on my homelab. This is for experimentation
+with running a server and playing around with applications that I find interesting.
 
-## Services 
+## Services
+
 - TYSONCLOUD
 - Qbittorrent
 - Plex
@@ -15,14 +14,14 @@ capabilities of what one server can do.
 - Portainer
 - Cloudflared
 - Pi-hole
-- Gitea
-- Synapse
+- Forgejo
+- Homepage
 - Traefik
-- TrueNas
+- TrueNAS
 - Uptimekuma
-- n8n
 
 ## Technologies
+
 - Proxmox
 - Docker
 - Kubernetes

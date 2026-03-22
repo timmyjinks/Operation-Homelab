@@ -1,7 +1,4 @@
 { pkgs, ... }: {
-  services.minecraft-server.enable = true;
-  services.minecraft-server.eula = true;
-
   services.minecraft-server = {
     enable = true;
     eula = true;
@@ -12,7 +9,7 @@
       username2 = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy";
     };
     serverProperties = {
-      server-port = 43000;
+      server-port = 25565;
       difficulty = 3;
       gamemode = 1;
       max-players = 5;

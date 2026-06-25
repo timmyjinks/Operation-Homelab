@@ -8,7 +8,7 @@ metadata:
 spec:
   gatewayClassName: nginx
   listeners:
-    - name: http
+    - name: http-wildcard
       port: 80
       protocol: HTTP
       hostname: "*.tysoncloud.tysonjenkins.dev"
@@ -18,7 +18,7 @@ spec:
           selector:
             matchLabels:
               managed-by: tysoncloud
-    - name: https
+    - name: https-wildcard
       port: 443
       hostname: "*.tysoncloud.tysonjenkins.dev"
       protocol: HTTPS
@@ -29,6 +29,32 @@ spec:
             matchLabels:
               managed-by: tysoncloud
       tls:
-        certificateRefs:
-          - name: tysoncloud-tysonjenkins-dev-tls
         mode: Terminate
+        certificateRefs:
+          - name: gateway-tls-secret
+            kind: Secret
+    - name: http
+      port: 80
+      protocol: HTTP
+      hostname: "tc.tysonjenkins.dev"
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              managed-by: tysoncloud
+    - name: https
+      port: 443
+      hostname: "tc.tysonjenkins.dev"
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              managed-by: tysoncloud
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: gateway-tls-secret
+            kind: Secret

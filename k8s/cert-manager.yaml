@@ -1,26 +1,30 @@
-apiVersion: source.toolkit.fluxcd.io/v1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: ngf
+  name: cert-manager
   namespace: flux-system
 spec:
-  interval: 1m
   type: oci
-  url: oci://ghcr.io/nginx/charts/nginx-gateway-fabric
+  url: oci://quay.io/jetstack/charts
+  interval: 10m
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ngf
-  namespace: nginx-gateway
+  name: cert-manager
+  namespace: cert-manager
 spec:
   interval: 10m
   chart:
     spec:
-      chart: ngf
+      chart: cert-manager
+      version: v1.20.2
       sourceRef:
         kind: HelmRepository
-        name: ngf
+        name: cert-manager
         namespace: flux-system
   install:
     createNamespace: true
+  values:
+    crds:
+      enabled: true

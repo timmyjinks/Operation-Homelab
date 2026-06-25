@@ -1,4 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: cert-manager
@@ -8,13 +8,14 @@ spec:
   url: oci://quay.io/jetstack/charts
   interval: 10m
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: cert-manager
-  namespace: cert-manager
+  namespace: flux-system
 spec:
   interval: 10m
+  targetNamespace: cert-manager
   chart:
     spec:
       chart: cert-manager

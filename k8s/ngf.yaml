@@ -4,23 +4,25 @@ metadata:
   name: ngf
   namespace: flux-system
 spec:
-  interval: 1m
   type: oci
-  url: oci://ghcr.io/nginx/charts/nginx-gateway-fabric
+  url: oci://ghcr.io/nginx/charts
+  interval: 10m
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ngf
-  namespace: nginx-gateway
+  namespace: flux-system
 spec:
   interval: 10m
+  install:
+    createNamespace: true
+  targetNamespace: nginx-gateway
   chart:
     spec:
-      chart: ngf
+      chart: nginx-gateway-fabric
+      version: "2.6.5"
       sourceRef:
         kind: HelmRepository
         name: ngf
         namespace: flux-system
-  install:
-    createNamespace: true

@@ -16,6 +16,7 @@ spec:
   interval: 10m
   install:
     createNamespace: true
+  targetNamespace: nextcloud
   chart:
     spec:
       chart: nextcloud

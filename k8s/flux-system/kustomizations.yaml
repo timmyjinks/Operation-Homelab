@@ -4,7 +4,7 @@ metadata:
   name: metallb
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10m
   path: ./k8s/metallb-system
   prune: true
   sourceRef:
@@ -22,7 +22,7 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10m
   path: ./k8s/cert-manager
   prune: true
   sourceRef:
@@ -40,7 +40,7 @@ metadata:
   name: nginx-gateway
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 10m
   path: ./k8s/nginx-gateway
   prune: true
   sourceRef:
@@ -61,7 +61,7 @@ spec:
   dependsOn:
     - name: cert-manager
     - name: nginx-gateway
-  interval: 1m
+  interval: 10m
   path: ./k8s/tc-system
   prune: true
   sourceRef:
@@ -76,7 +76,7 @@ metadata:
 spec:
   dependsOn:
     - name: tc-system
-  interval: 1m
+  interval: 10m
   path: ./k8s/tysoncloud
   prune: true
   sourceRef:

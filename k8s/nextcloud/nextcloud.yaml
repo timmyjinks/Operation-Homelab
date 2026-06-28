@@ -26,5 +26,17 @@ spec:
         name: nextcloud
         namespace: flux-system
   values:
+    image:
+      pullPolicy: Always
     nextcloud:
       host: nextcloud.home-system.tysonjenkins.dev
+    persistence:
+      enabled: true
+      storageClass: "local-path"
+      accessMode: ReadWriteOnce
+      size: 8Gi
+      nextcloudData:
+        enabled: true
+        storageClass: "local-path"
+        accessMode: ReadWriteOnce
+        size: 8Gi

@@ -27,4 +27,4 @@ spec:
         namespace: flux-system
   values:
     nextcloud:
-      host: nextcloud.tysoncloud.tysonjenkins.dev
+      host: nextcloud.home-system.tysonjenkins.dev

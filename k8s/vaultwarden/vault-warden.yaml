@@ -31,3 +31,4 @@ spec:
         name: "vaultwarden-data"
         size: "8Gi"
         class: "local-path"
+        accessMode: ReadWriteOnce

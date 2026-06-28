@@ -5,10 +5,10 @@ metadata:
   namespace: nextcloud
 spec:
   parentRefs:
-    - name: tysoncloud-gateway
-      namespace: tc-system
+    - name: home-gateway
+      namespace: home-system
   hostnames:
-    - "nextcloud.tysoncloud.tysonjenkins.dev"
+    - "nextcloud.home-system.tysonjenkins.dev"
   rules:
     - matches:
         - path:

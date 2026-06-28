@@ -11,7 +11,7 @@ spec:
     - name: http-wildcard
       port: 80
       protocol: HTTP
-      hostname: "*.home.tysonjenkins.dev"
+      hostname: "*.home-system.tysonjenkins.dev"
       allowedRoutes:
         namespaces:
           from: Selector
@@ -20,7 +20,7 @@ spec:
               managed-by: home
     - name: https-wildcard
       port: 443
-      hostname: "*.home.tysonjenkins.dev"
+      hostname: "*.home-system.tysonjenkins.dev"
       protocol: HTTPS
       allowedRoutes:
         namespaces:

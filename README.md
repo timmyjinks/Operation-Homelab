@@ -26,6 +26,7 @@ with running a server and playing around with applications that I find interesti
 - Docker
 - Kubernetes
 - K3s
+- FluxCD
 - Tailscale
 - Cloudflare
 - Ubuntu Server

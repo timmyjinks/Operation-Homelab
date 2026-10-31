@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "tysoncloud-lenovo-0";
+  networking.hostName = "home-tysoncloud-0";
   networking.networkmanager.enable = true;
 
 

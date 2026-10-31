@@ -9,7 +9,7 @@
 
   outputs = { self, nixpkgs, disko, ... }:
     {
-      nixosConfigurations.tysoncloud-lenovo-0 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.home-tysoncloud-0 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko

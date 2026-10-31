@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 {
   imports = [
-    ./hardware-configuration.nix
     ./disko-config.nix
     ./laptop.nix
     ./k3s.nix

@@ -1,13 +1,14 @@
 { pkgs, config, ... }:
 {
-  imports = [ ];
-
-  test = [ ];
+  imports = [
+    ./vpn.nix
+    ./disko-config.nix
+  ]
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 
-  networking.hostName = "TYSONCLOUD-us-oracle";
+  networking.hostName = "ovh-server-0";
   networking.networkmanager.enable = true;
 
 

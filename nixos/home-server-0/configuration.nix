@@ -4,8 +4,7 @@
     ./hardware-configuration.nix
     ./disko-config.nix
     ./laptop.nix
-    ./k3s.nix
-    ./docker.nix
+    ./minecraft.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

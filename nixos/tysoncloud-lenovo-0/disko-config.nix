@@ -2,9 +2,7 @@
 {
   disko.devices = {
     disk = {
-      my-disk = {
-        # Check with `lsblk` on the laptop; NVMe drives show up as /dev/nvme0n1.
-        # Prefer a stable /dev/disk/by-id/... path once known.
+      main = {
         device = "/dev/sda";
         type = "disk";
         content = {

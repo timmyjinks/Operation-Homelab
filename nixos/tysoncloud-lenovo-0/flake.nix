@@ -1,15 +1,15 @@
 {
-  description = "mobile server flake";
+  description = "tysoncloud-lenovo-0 server flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    flake-utils.url = "github:numtide/flake-utils";
     disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, disko, ... }:
     {
-      nixosConfigurations.tysocloud-server = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.tysoncloud-lenovo-0 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           disko.nixosModules.disko

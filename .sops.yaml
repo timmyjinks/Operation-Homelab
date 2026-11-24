@@ -1,0 +1,9 @@
+keys:
+  - &admin age1ljtvw869zselwtuw9trsk9rsgu02razth2y7vs80guculhrhvepq2gsfzz
+  - &home-server-0 age1cujzf8jmftu28y39ul7738r4kr2xscfteveglfr5cff0n9mc8y3sfl7h39
+creation_rules:
+  - path_regex: nixos/hosts/home-server-0/secrets\.yaml$
+    key_groups:
+      - age:
+          - *admin
+          - *home-server-0

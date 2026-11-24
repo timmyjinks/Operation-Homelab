@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
+  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+  environment.systemPackages = with pkgs; [ wireguard-tools ];
+
   networking.nat.enable = true;
   networking.nat.externalInterface = "eth0";
   networking.nat.internalInterfaces = [ "wg0" ];

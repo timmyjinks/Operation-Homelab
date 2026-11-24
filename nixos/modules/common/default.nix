@@ -1,16 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
-  imports = [
-    ./vpn.nix
-    ./disko-config.nix
-  ]
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 
-  networking.hostName = "ovh-server-0";
   networking.networkmanager.enable = true;
-
 
   time.timeZone = "America/Denver";
 
@@ -24,7 +17,7 @@
       ];
   };
 
-  environment.systemPackages = with pkgs; [ vim tmux pkgs.wireguard pkgs.wireguard-tools ];
+  environment.systemPackages = with pkgs; [ vim ];
 
   services.fail2ban.enable = true;
 
@@ -49,9 +42,4 @@
     enable = true;
     allowedTCPPorts = [ 80 443 ];
   };
-
-  system.copySystemConfiguration = true;
-
-  # no touchy
-  system.stateVersion = "25.05";
 }
